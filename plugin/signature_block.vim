@@ -5,7 +5,7 @@
 " Last Change: 2009-11-24
 " License:     This script is free software; you can redistribute it and/or
 "              modify it under the terms of the GNU General Public License.
-
+"
 " Install Details:
 " Drop this file into your $HOME/.vim/plugin directory.
 "
