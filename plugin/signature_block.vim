@@ -25,6 +25,11 @@
 " http://en.wikipedia.org/wiki/Signature_block
 " http://tools.ietf.org/html/rfc1855
 "
+" The latest version of this script is available at these locations:
+" https://git.ao2.it/vim/signature_block.vim.git
+" http://www.vim.org/scripts/script.php?script_id=2872
+" https://github.com/vim-scripts/signature_block.vim
+"
 "---------------------------------------------------------------------------
 
 if exists("g:loaded_signaturePlugin") | finish | endif
