@@ -31,6 +31,19 @@ if exists("g:loaded_signaturePlugin") | finish | endif
 let g:loaded_signaturePlugin = 1
 
 
+" Function:     SigFileReadable()
+" Purpose:      Check if the signature file is readable
+"---------------------------------------------------------------------------
+func! SigFileReadable(sigfile)
+	let filename = expand(a:sigfile)
+	if !filereadable(filename)
+		echoerr "E484: Can't open file " . filename
+		return v:false
+	endif
+
+	return v:true
+endfunc
+
 "---------------------------------------------------------------------------
 " Function:     AppendSignature()
 " Purpose:      Append a signature block at the end of message
@@ -49,6 +62,10 @@ endfunc
 " Purpose:      Add a signature block if there isn't one already
 "---------------------------------------------------------------------------
 func! AddSignature(sigfile)
+	if !SigFileReadable(a:sigfile)
+		return v:false
+	endif
+
 	" Save current cursor position in mark 'z'
 	normal mz
 
@@ -63,6 +80,8 @@ func! AddSignature(sigfile)
 
 	" restore cursor position from mark 'z' if the mark is still valid
 	silent! normal `z
+
+	return v:true
 endfunc
 
 
@@ -71,6 +90,10 @@ endfunc
 " Purpose:      Replace all signature blocks in the message
 "---------------------------------------------------------------------------
 func! ReplaceAllSignatures(sigfile)
+	if !SigFileReadable(a:sigfile)
+		return v:false
+	endif
+
 	" Save current cursor position in mark 'z'
 	normal mz
 
@@ -85,6 +108,8 @@ func! ReplaceAllSignatures(sigfile)
 	
 	" restore cursor position from mark 'z' if the mark is still valid
 	silent! normal `z
+
+	return v:true
 endfunc
 
 
@@ -93,6 +118,10 @@ endfunc
 " Purpose:      Replace only the last signature block in the message
 "---------------------------------------------------------------------------
 func! ReplaceLastSignature(sigfile)
+	if !SigFileReadable(a:sigfile)
+		return v:false
+	endif
+
 	" Save current cursor position in mark 'z'
 	normal mz
 
@@ -107,4 +136,6 @@ func! ReplaceLastSignature(sigfile)
 	
 	" restore cursor position from mark 'z' if the mark is still valid
 	silent! normal `z
+
+	return v:true
 endfunc
