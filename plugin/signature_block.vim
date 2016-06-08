@@ -15,10 +15,10 @@
 " map <Leader>R :call ReplaceAllSignatures('~/.signature')<CR>
 "
 " " Append a signature block to all e-mails
-" autocmd FileType mail silent call AddSignature('~/.signature') | w
+" autocmd FileType mail if AddSignature('~/.signature') | w | endif
 "
-" " Append a signature block to cover letters generated with git-format-patch
-" autocmd BufRead 0000-cover-letter.patch silent call AddSignature('~/.signature') | w
+" " Replace the git version with a signature in cover letters generated with git-format-patch
+" autocmd BufRead 0000-cover-letter.patch if ReplaceLastSignature('~/.signature') | w | endif
 " autocmd BufRead 0000-cover-letter.patch autocmd! BufRead 0000-cover-letter.patch
 "
 " References:
