@@ -105,7 +105,7 @@ func! ReplaceAllSignatures(sigfile)
 	endtry
 
 	call AppendSignature(a:sigfile)
-	
+
 	" restore cursor position from mark 'z' if the mark is still valid
 	silent! normal `z
 
@@ -133,7 +133,7 @@ func! ReplaceLastSignature(sigfile)
 	endtry
 
 	call AppendSignature(a:sigfile)
-	
+
 	" restore cursor position from mark 'z' if the mark is still valid
 	silent! normal `z
 
