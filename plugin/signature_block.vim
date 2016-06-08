@@ -1,10 +1,17 @@
 "---------------------------------------------------------------------------
 " Vim global plugin for adding and manipulating signature blocks in e-mails
-" Maintainer:  Antonio Ospite <ospite@studenti.unina.it>
-" Version:     0.1
-" Last Change: 2009-11-24
+" Maintainer:  Antonio Ospite <ao2@ao2.it>
+" Version:     0.2
+" Last Change: 2016-06-08
 " License:     This script is free software; you can redistribute it and/or
 "              modify it under the terms of the GNU General Public License.
+"
+" History:
+"   1.0: Initial upload
+"   2.0:
+"     - Check that the signature file is readable before removing the old
+"       signature and append the new one.
+"     - Minor fixes.
 "
 " Install Details:
 " Drop this file into your $HOME/.vim/plugin directory.
